@@ -820,3 +820,22 @@ function shuffleArray(arr) {
 
 // Start app
 renderLesson();
+
+const totalLessons = 10; // set total number of lessons here
+let currentLesson = 1; // track current lesson, update as user progresses
+
+function updateProgress(lessonNumber) {
+  currentLesson = lessonNumber;
+  const progressText = document.getElementById('progress-text');
+  const progressPercentage = document.getElementById('progress-percentage');
+  const progressFill = document.getElementById('progress-fill');
+
+  const percent = Math.round((lessonNumber / totalLessons) * 100);
+
+  progressText.textContent = `Lesson ${lessonNumber} of ${totalLessons}`;
+  progressPercentage.textContent = `${percent}%`;
+  progressFill.style.width = percent + '%';
+}
+
+// Call this function on page load and after each lesson advance:
+updateProgress(currentLesson);
