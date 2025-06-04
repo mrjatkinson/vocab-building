@@ -1,7 +1,18 @@
 // Vocabulary lessons data: 10 lessons, each with 10 activities/questions
 // Activities include multiple choice, matching, fill in the blank, translations, sentence order, and short writing prompts.
 // This is a fully working example with progress tracking and final score display.
+// At the very top of your <script> or JS file
+let userResponses = JSON.parse(localStorage.getItem('vocabQuizResponses')) || [];
 
+function recordResponse(questionId, userAnswer, isCorrect) {
+  const existingIndex = userResponses.findIndex(r => r.questionId === questionId);
+  if (existingIndex > -1) {
+    userResponses[existingIndex] = { questionId, userAnswer, isCorrect };
+  } else {
+    userResponses.push({ questionId, userAnswer, isCorrect });
+  }
+  localStorage.setItem('vocabQuizResponses', JSON.stringify(userResponses));
+}
 const lessons = [
   // Lesson 1 - Basics vocab and simple sentences
   {
