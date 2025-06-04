@@ -125,124 +125,206 @@
   // Each question has question text, choices (for mcq/select/order), correct answer(s), feedback, etc.
   
   const lessons = [
-    {
-      title: "Lesson 1: Basic Vocabulary",
-      questions: [
-        {
-          id: "q1",
-          type: "mcq",
-          question: "What is the French word for 'An interview'?",
-          choices: [
-            {value: "a", text: "Un entretien"},
-            {value: "b", text: "Un exposé"},
-            {value: "c", text: "Une réunion"}
-          ],
-          correct: "a",
-          feedbackCorrect: "Correct! 'Un entretien' means 'An interview'.",
-          feedbackIncorrect: "Incorrect. The correct answer is 'a) Un entretien'."
-        },
-        {
-          id: "q2",
-          type: "mcq",
-          question: "What does 'Il y a' mean?",
-          choices: [
-            {value: "a", text: "I have"},
-            {value: "b", text: "I am"},
-            {value: "c", text: "There is/There are"}
-          ],
-          correct: "c",
-          feedbackCorrect: "Correct! 'Il y a' means 'There is/There are'.",
-          feedbackIncorrect: "Incorrect. The correct answer is 'c) There is/There are'."
-        },
-        {
-          id: "q3",
-          type: "text",
-          question: "Translate into English: 'J’espère gagner plusieurs fois.'",
-          correctKeywords: ["i hope", "win", "several times"],
-          feedbackCorrect: "Good job! Your translation captures the meaning.",
-          feedbackIncorrect: "Check your translation. A good answer is: 'I hope to win several times.'"
-        },
-        {
-          id: "q4",
-          type: "order",
-          question: "Put the words in the correct order to form this sentence: 'on m’a dit que c’est dur'",
-          choices: ["on", "m’a", "dit", "que", "c’est", "dur"],
-          correctOrder: ["on", "m’a", "dit", "que", "c’est", "dur"],
-          feedbackCorrect: "Correct! Well done.",
-          feedbackIncorrect: "Incorrect. The correct order is: 'on m’a dit que c’est dur'."
-        }
-      ]
-    },
-    {
-      title: "Lesson 2: Confidence & Expression",
-      questions: [
-        {
-          id: "q1",
-          type: "mcq",
-          question: "What does 'avoir confiance' mean?",
-          choices: [
-            {value: "a", text: "To have luck"},
-            {value: "b", text: "To have confidence"},
-            {value: "c", text: "To be confident"}
-          ],
-          correct: "b",
-          feedbackCorrect: "Correct! 'avoir confiance' means 'to have confidence'.",
-          feedbackIncorrect: "Incorrect. The correct answer is 'b) to have confidence'."
-        },
-        {
-          id: "q2",
-          type: "select",
-          question: "Select the correct word to complete: 'Je rêve de ______ célèbre.'",
-          choices: ["devenir", "avoir", "être", "faire"],
-          correct: "devenir",
-          feedbackCorrect: "Correct! 'Je rêve de devenir célèbre.'",
-          feedbackIncorrect: "Incorrect. The correct choice is 'devenir'."
-        },
-        {
-          id: "q3",
-          type: "text",
-          question: "Translate: 'Il y aura un entretien samedi prochain.'",
-          correctKeywords: ["there will be", "an interview", "next saturday"],
-          feedbackCorrect: "Great! Your translation is correct.",
-          feedbackIncorrect: "Check your translation. A good answer is: 'There will be an interview next Saturday.'"
-        }
-      ]
-    },
-    // You can add lessons 3 to 10 similarly with their own questions...
-    // For demo, I will add placeholder lessons with 2 simple MCQs each.
-    {
-      title: "Lesson 3: Placeholder",
-      questions: [
-        {
-          id: "q1",
-          type: "mcq",
-          question: "Placeholder question 1?",
-          choices: [
-            {value: "a", text: "Option A"},
-            {value: "b", text: "Option B"},
-            {value: "c", text: "Option C"}
-          ],
-          correct: "b",
-          feedbackCorrect: "Correct!",
-          feedbackIncorrect: "Incorrect."
-        },
-        {
-          id: "q2",
-          type: "mcq",
-          question: "Placeholder question 2?",
-          choices: [
-            {value: "a", text: "Option A"},
-            {value: "b", text: "Option B"}
-          ],
-          correct: "a",
-          feedbackCorrect: "Correct!",
-          feedbackIncorrect: "Incorrect."
-        }
-      ]
-    },
-    // Lessons 4 to 10 identical placeholders
-  ];
+  // Lesson 1: Basic vocab from entretien list
+  {
+    title: "Leçon 1: L’entretien (Interview Vocabulary)",
+    questions: [
+      {
+        id: "q1",
+        type: "mcq",
+        question: "Que signifie 'un entretien'?",
+        choices: ["A party", "An interview", "A song", "A competition"],
+        correct: "An interview",
+        feedbackCorrect: "Correct! 'Un entretien' means 'an interview'.",
+        feedbackIncorrect: "Incorrect. 'Un entretien' means 'an interview'."
+      },
+      {
+        id: "q2",
+        type: "mcq",
+        question: "Comment dit-on 'There will be' en français?",
+        choices: ["Il y a", "Il y aura", "Il y avait", "Il est"],
+        correct: "Il y aura",
+        feedbackCorrect: "Bien joué! 'Il y aura' means 'There will be'.",
+        feedbackIncorrect: "Non, la bonne réponse est 'Il y aura'."
+      },
+      {
+        id: "q3",
+        type: "order",
+        question: "Remettez les mots dans le bon ordre: 'soirée / une / J’ai / hier'.",
+        choices: ["J’ai", "une", "soirée", "hier"],
+        correctOrder: ["J’ai", "une", "soirée", "hier"],
+        feedbackCorrect: "Très bien! La phrase correcte est 'J’ai une soirée hier'.",
+        feedbackIncorrect: "Pas tout à fait. Essayez de remettre les mots dans le bon ordre."
+      },
+      {
+        id: "q4",
+        type: "text",
+        question: "Complétez la phrase: 'Je ___ confiance en moi.' (use 'avoir')",
+        correctKeywords: ["ai", "confiance"],
+        feedbackCorrect: "Bravo! 'J’ai confiance en moi.' signifie 'I have confidence in myself.'",
+        feedbackIncorrect: "Incorrect. La phrase correcte est 'J’ai confiance en moi.'"
+      },
+      {
+        id: "q5",
+        type: "select",
+        question: "Quelle est la bonne traduction pour 'to sing'?",
+        choices: ["Chanter", "Courir", "Écrire", "Manger"],
+        correct: "Chanter",
+        feedbackCorrect: "Exact! 'Chanter' signifie 'to sing'.",
+        feedbackIncorrect: "Non, 'Chanter' est la bonne réponse."
+      },
+      {
+        id: "q6",
+        type: "mcq",
+        question: "Que veut dire 'dernier'?",
+        choices: ["Last/latest", "First", "Soon", "Early"],
+        correct: "Last/latest",
+        feedbackCorrect: "Correct! 'Dernier' signifie 'last' ou 'latest'.",
+        feedbackIncorrect: "Non, 'dernier' veut dire 'last' ou 'latest'."
+      },
+      {
+        id: "q7",
+        type: "order",
+        question: "Remettez en ordre: 'Il / y / a / un concours'.",
+        choices: ["Il", "y", "a", "un concours"],
+        correctOrder: ["Il", "y", "a", "un concours"],
+        feedbackCorrect: "Bien joué! La phrase correcte est 'Il y a un concours'.",
+        feedbackIncorrect: "Pas tout à fait. Essayez encore."
+      },
+      {
+        id: "q8",
+        type: "text",
+        question: "Traduisez: 'I hope to succeed' (use 'j’espère')",
+        correctKeywords: ["j’espère"],
+        feedbackCorrect: "Bravo! 'J’espère réussir' est une bonne traduction.",
+        feedbackIncorrect: "Non, essayez d’utiliser 'j’espère' dans la phrase."
+      },
+      {
+        id: "q9",
+        type: "mcq",
+        question: "Que veut dire 'une soirée'?",
+        choices: ["An evening", "A morning", "A night", "A weekend"],
+        correct: "An evening",
+        feedbackCorrect: "'Une soirée' signifie 'an evening'.",
+        feedbackIncorrect: "Non, 'une soirée' veut dire 'an evening'."
+      },
+      {
+        id: "q10",
+        type: "select",
+        question: "Comment dit-on 'to have confidence' en français?",
+        choices: ["Avoir confiance", "Être content", "Faire attention", "Prendre soin"],
+        correct: "Avoir confiance",
+        feedbackCorrect: "Exact! 'Avoir confiance' signifie 'to have confidence'.",
+        feedbackIncorrect: "Non, la bonne réponse est 'avoir confiance'."
+      }
+    ]
+  },
 
+  // Lesson 2: Technology and Opinions (from our sentence builder vocab)
+  {
+    title: "Leçon 2: La technologie et les opinions",
+    questions: [
+      {
+        id: "q1",
+        type: "mcq",
+        question: "Que signifie 'regarder des émissions en streaming'?",
+        choices: ["To play games online", "To watch streaming shows", "To listen to music", "To surf the internet"],
+        correct: "To watch streaming shows",
+        feedbackCorrect: "Correct! Cela signifie 'to watch streaming shows'.",
+        feedbackIncorrect: "Incorrect. Cela veut dire 'to watch streaming shows'."
+      },
+      {
+        id: "q2",
+        type: "select",
+        question: "Quelle est la bonne traduction de 'écouter de la musique en ligne'?",
+        choices: ["To listen to music online", "To play video games", "To watch videos", "To write emails"],
+        correct: "To listen to music online",
+        feedbackCorrect: "Exact! Cela signifie 'to listen to music online'.",
+        feedbackIncorrect: "Non, la bonne réponse est 'to listen to music online'."
+      },
+      {
+        id: "q3",
+        type: "order",
+        question: "Réorganisez la phrase: 'Je / préfère / jouer à des jeux en ligne'.",
+        choices: ["Je", "préfère", "jouer à des jeux en ligne"],
+        correctOrder: ["Je", "préfère", "jouer à des jeux en ligne"],
+        feedbackCorrect: "Très bien! La phrase correcte est 'Je préfère jouer à des jeux en ligne'.",
+        feedbackIncorrect: "Essayez de remettre les mots dans le bon ordre."
+      },
+      {
+        id: "q4",
+        type: "text",
+        question: "Complétez: 'J’aime ___ des vidéos sur YouTube.' (verbe)",
+        correctKeywords: ["regarder"],
+        feedbackCorrect: "Bravo! 'J’aime regarder des vidéos sur YouTube.'",
+        feedbackIncorrect: "Non, la bonne réponse est 'J’aime regarder des vidéos sur YouTube.'"
+      },
+      {
+        id: "q5",
+        type: "mcq",
+        question: "Que veut dire 'sufer et trouver des sites intéressants'?",
+        choices: ["To surf and find interesting websites", "To swim", "To dance", "To sing"],
+        correct: "To surf and find interesting websites",
+        feedbackCorrect: "Correct! Cela signifie 'to surf and find interesting websites'.",
+        feedbackIncorrect: "Non, cela veut dire 'to surf and find interesting websites'."
+      },
+      {
+        id: "q6",
+        type: "select",
+        question: "Quel verbe signifie 'to listen'?",
+        choices: ["écouter", "jouer", "regarder", "chanter"],
+        correct: "écouter",
+        feedbackCorrect: "Exact! 'écouter' signifie 'to listen'.",
+        feedbackIncorrect: "Non, la bonne réponse est 'écouter'."
+      },
+      {
+        id: "q7",
+        type: "order",
+        question: "Remettez en ordre: 'Il / aime / écouter / de la musique'.",
+        choices: ["Il", "aime", "écouter", "de la musique"],
+        correctOrder: ["Il", "aime", "écouter", "de la musique"],
+        feedbackCorrect: "Bien joué! La phrase correcte est 'Il aime écouter de la musique'.",
+        feedbackIncorrect: "Essayez encore."
+      },
+      {
+        id: "q8",
+        type: "text",
+        question: "Traduisez: 'I prefer to watch videos in the evening.' (Use 'je préfère')",
+        correctKeywords: ["je", "préfère", "regarder", "vidéos", "le soir"],
+        feedbackCorrect: "Très bien! La phrase pourrait être: 'Je préfère regarder des vidéos le soir.'",
+        feedbackIncorrect: "Non, essayez d’utiliser les mots-clés donnés."
+      },
+      {
+        id: "q9",
+        type: "mcq",
+        question: "Quel mot correspond à 'online'?",
+        choices: ["en ligne", "à la maison", "hier", "ce soir"],
+        correct: "en ligne",
+        feedbackCorrect: "Correct! 'En ligne' signifie 'online'.",
+        feedbackIncorrect: "Non, la bonne réponse est 'en ligne'."
+      },
+      {
+        id: "q10",
+        type: "select",
+        question: "Quelle phrase exprime une opinion?",
+        choices: [
+          "Je joue à des jeux en ligne.",
+          "J’écoute de la musique en ligne.",
+          "J’aime regarder des vidéos.",
+          "Il y a un concours."
+        ],
+        correct: "J’aime regarder des vidéos.",
+        feedbackCorrect: "Exact! 'J’aime regarder des vidéos.' exprime une opinion.",
+        feedbackIncorrect: "Non, cherchez une phrase exprimant une opinion."
+      }
+    ]
+  },
+
+  // Lesson 3, 4... up to Lesson 10 similar format with vocabulary from our earlier chats...
+
+  // Example placeholder for next lessons - I can fully expand all if you want now, or lesson by lesson?
+
+];
   // Adding placeholders to reach 10 lessons total
   while (lessons.length < 10) {
     const n = lessons.length + 1;
